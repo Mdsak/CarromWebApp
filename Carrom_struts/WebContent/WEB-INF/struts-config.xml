@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <form-beans>
+    	<form-bean name="UserForm1" type="form.UserForm1"/> 
+    	<form-bean name="UserForm2" type="form.UserForm2"/> 
+    </form-beans>
+    <action-mappings>
+        <action path="/LoginPage1" type="actionClass.LoginPage1" name="UserForm1">
+         <forward name="Success" path="/Player1Page.jsp" />
+        </action>        
+        <action path="/LoginPage2" type="actionClass.LoginPage2" name="UserForm2">
+         <forward name="Success" path="/Player2Page.jsp" />
+        </action>   
+         <action path="/ActionProcess" type="actionClass.ActionProcess" name="GamePlay">
+         <forward name="Success" path="/WinnerUpdatePage.jsp" />
+         <forward name="Continue" path="/ContinueGame.jsp" />
+         <forward name="Failure1" path="/Failure1.jsp" />
+        <forward name="Failure2" path="/Failure2.jsp" />
+        </action>    
+        <action path="/ContinuePage" type="actionClass.ContinuePage" name="Continue">
+         <forward name="Success" path="/ChoicePage.jsp" />
+         <forward name="Failure" path="/MainPage.jsp" />
+        </action>        
+        <action path="/Player1Record" type="actionClass.Player1Record" name="UserForm1">
+        </action>   
+        <action path="/Player2Record" type="actionClass.Player2Record" name="UserForm2">
+        </action> 
+		<action path="/OneToOneRecord" type="actionClass.OneToOneRecord" name="UserForm1" >
+        </action>         
+    </action-mappings>
+</struts-config>
